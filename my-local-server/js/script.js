@@ -9,7 +9,9 @@ fetchJSONdata().then(fullData => {
   let allEyeColours = fullData.map((value) => {
     return value.oogKleur;
   });
-  let newEyeColours = allEyeColours.filter(colour => console.log(colour));
+  let newEyeColours = allEyeColours.filter(colour => colour.replace("#", )
+  
+  );
   // allEyeColours.replace(/#/g, "");
   console.log(newEyeColours);
 
