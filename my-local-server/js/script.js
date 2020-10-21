@@ -4,15 +4,40 @@ let fetchJSONdata = async () => {
   return data;
 }
 
+let newArray = [];
+
 fetchJSONdata().then(fullData => {
   console.log('Data is loaded!');
-  let allEyeColours = fullData.map((value) => {
-    return value.oogKleur;
+  let allEyeColours = fullData.map((data) => {
+    return data.oogKleur.toLowerCase();
   });
-  let newEyeColours = allEyeColours.filter(colour => colour.replace("#", )
-  
-  );
-  // allEyeColours.replace(/#/g, "");
-  console.log(newEyeColours);
+
+  let replacedHash = allEyeColours.map((eyecolour) => {
+    return eyecolour.replace(/#/g, "");
+  });
+
+  // let dataRGB = replacedHash.filter(colour => colour)
+
+  console.log(replacedHash);
+
+  // async function replaceString(colour) {
+  //   return colour;
+  // }
+
+  // let newArr = allEyeColours.filter(replaceString);
+
+  // console.log(newArr);
+  // allEyeColours.forEach((colour) => {
+  //   let colourNew = colour.replace(/#/g, "").toLowerCase();
+  //   newArray.push(colourNew);
+  //   console.log(newArray);
+  // })
+
+
+  // let newColor = allEyeColours.forEach((element) => console.log(element.toUpperCase()));
+  // let newEyeColours = allEyeColours.filter(colour => colour.toLowerCase()
+  // );
+  // // allEyeColours.replace(/#/g, "");
+  // console.log(newEyeColours);
 
 })
