@@ -17,10 +17,10 @@ let componentToHex = (char) => {
 }
 
 let rgbToHex = (arr) => {
-  let int1 = Number(arr[0]);
-  let int2 = Number(arr[0]);
-  let int3 = Number(arr[0]);
-  console.log(int1);
+  let int1 = parseInt(arr[0]);
+  let int2 = parseInt(arr[1]);
+  let int3 = parseInt(arr[2]);
+  console.log(typeof(int1));
   return componentToHex(int1) + componentToHex(int2) + componentToHex(int3);
 }
 
@@ -36,10 +36,10 @@ fetchJSONdata().then(fullData => {
     let regx = new RegExp(/rgb/g);
     if (element.match(regx)) {
       element = element.replace(".", ",");
-      element = element.replace(/rgb([()])/g, "");
-      console.log(element);
+      element = element.replace(/([()])/g, "");
+      element = element.replace("rgb", "");
       element = element.split(",");
-      // console.log(element);
+      console.log(element);
       element = rgbToHex(element);
       console.log(element);
       return element;
