@@ -11,12 +11,17 @@ let replaceHashToLower = (str) => {
 };
 
 let componentToHex = (char) => {
+  // Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
   var hex = char.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
 }
 
 let rgbToHex = (arr) => {
-  return componentToHex(arr[0]) + componentToHex(arr[1]) + componentToHex(arr[2]);
+  let int1 = Number(arr[0]);
+  let int2 = Number(arr[0]);
+  let int3 = Number(arr[0]);
+  console.log(int1);
+  return componentToHex(int1) + componentToHex(int2) + componentToHex(int3);
 }
 
 fetchJSONdata().then(fullData => {
@@ -32,8 +37,9 @@ fetchJSONdata().then(fullData => {
     if (element.match(regx)) {
       element = element.replace(".", ",");
       element = element.replace(/rgb([()])/g, "");
-      element = element.split(",");
       console.log(element);
+      element = element.split(",");
+      // console.log(element);
       element = rgbToHex(element);
       console.log(element);
       return element;
