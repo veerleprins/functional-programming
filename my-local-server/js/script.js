@@ -1,6 +1,6 @@
 // Global vars:
 const regx = new RegExp(/rgb/g);
-const colourObject = {"blauw": "4682B4", "lichtblauw": "ADD8E6", "groen": "008000", "bruin":"603101"};
+const colourObject = {"blauw": "4682b4", "bruin": "603101", "lichtblauw": "add8e6", "groen": "008000"};
 
 //Getting the data from the JSON file:
 let fetchJSONdata = async () => {
@@ -64,14 +64,17 @@ fetchJSONdata().then(fullData => {
   console.log(index);
   console.log(allEyeColours);
 
-  for (let key in colourObject) {
-    if (allEyeColours.includes(key)) {
-      let index = allEyeColours.indexOf(key);
-      
-      console.log(index);
+  allEyeColours.forEach(color =>{
+    for (let key in colourObject) {
+      if (color == key) {
+        let index = allEyeColours.indexOf(color);
+        if (index !== -1) {
+          allEyeColours[index] = colourObject[key];
+        }
+      }
     }
-  }
-  
+  })
+  console.log(allEyeColours);
 
 
 });
