@@ -7,6 +7,14 @@ In order to be able to visualize this main question, several subquestions have b
 2. Where are public parking facilities for charging an electric car in the Netherlands?
 3. How many charging stations are available per public parking space?
 
+### Required data
+* Number of electric cars
+* Number of charging stations
+* Places where you can charge while parking
+
+### hypothesis
+"The number of charging points in the province of Noord-Holland is greatest because this is also where there are the most parking facilities."
+
 ## Feature
 ## :link: Dataset
 ## :arrow_down: Install
