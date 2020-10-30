@@ -73,6 +73,8 @@ function getRGB (dataArray) {
   return dataArray.filter(element => element.match(regx));
 }
 
+// This function transforms all RGB strings to hex codes and 
+// changes them in the total array.
 function replaceToHex(dataArray, totalArray) {
   let removedDots = replaceData(dataArray, ",", ".");
   let removedBrackets = replaceData(removedDots, /([()])/g, "");
@@ -94,11 +96,14 @@ function toIntegers(dataArray) {
 }
 
 //Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+// This function takes each number from the rgb in the array and 
+// sends it to the componentToHex function and returns the result.
 function rgbToHex (arr) {
   return componentToHex(arr[0]) + componentToHex(arr[1]) + componentToHex(arr[2]);
 };
 
 //Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+// This function converts any number to a hex code.
 function componentToHex (char) {
   let hex = char.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
